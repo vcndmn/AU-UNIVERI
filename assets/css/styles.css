@@ -192,4 +192,16 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
   .programs-grid, .research-grid { grid-template-columns: 1fr; }
 }
 
+/* Small phones */
+@media (max-width: 480px) {
+  .headline { font-size: clamp(28px, 9vw, 40px); }
+  .subhead { font-size: 16px; }
+  .btn { padding: 10px 14px; }
+  .hero-art { height: 240px; }
+  .hero-image { width: 92%; height: 70%; }
+  .card-media { height: 140px; }
+  .program-card { min-height: 120px; }
+  .nav-links { inset: 56px 12px auto 12px; padding: 10px; }
+}
+
 
