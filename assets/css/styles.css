@@ -175,33 +175,233 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
 
 /* Responsive */
 @media (max-width: 1000px) {
-  .hero { grid-template-columns: 1fr; }
+  .hero { grid-template-columns: 1fr; gap: 24px; }
   .hero-art { order: -1; height: 300px; }
   .card-grid { grid-template-columns: 1fr 1fr; }
   .programs-grid { grid-template-columns: 1fr 1fr; }
   .research-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 720px) {
-  .site-nav { padding: 14px 0; }
-  .nav-toggle { display: inline-block; }
-  .nav-links { position: fixed; inset: 62px 16px auto 16px; background: var(--bg-elev); border: 1px solid var(--outline); border-radius: 16px; padding: 12px; display: grid; gap: 4px; transform: translateY(-8px); opacity: 0; pointer-events: none; transition: transform .25s, opacity .25s; box-shadow: var(--shadow); }
+  /* Container adjustments */
+  .container { width: 94vw; }
+  
+  /* Header & Navigation */
+  .site-nav { padding: 12px 0; gap: 12px; }
+  .brand-mark { width: 32px; height: 32px; font-size: 14px; }
+  .brand-text { font-size: 14px; }
+  .nav-toggle { display: inline-block; width: 38px; height: 38px; }
+  .nav-toggle span { left: 8px; right: 8px; }
+  .nav-toggle span:nth-child(1) { top: 12px; }
+  .nav-toggle span:nth-child(2) { top: 18px; }
+  .nav-toggle span:nth-child(3) { top: 24px; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) { top: 18px; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) { top: 18px; }
+  
+  .nav-links { 
+    position: fixed; 
+    inset: 58px 12px auto 12px; 
+    background: var(--bg-elev); 
+    border: 1px solid var(--outline); 
+    border-radius: 16px; 
+    padding: 16px; 
+    display: grid; 
+    gap: 8px; 
+    transform: translateY(-8px); 
+    opacity: 0; 
+    pointer-events: none; 
+    transition: transform .25s, opacity .25s; 
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+  }
   .nav-links.show { transform: translateY(0); opacity: 1; pointer-events: auto; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-  .card-grid { grid-template-columns: 1fr; }
-  .programs-grid, .research-grid { grid-template-columns: 1fr; }
+  .nav-links a { padding: 12px 16px; text-align: center; font-weight: 500; }
+  
+  .nav-cta { gap: 8px; }
+  .theme-toggle { width: 38px; height: 38px; }
+  .btn { padding: 10px 14px; font-size: 14px; }
+  
+  /* Hero Section */
+  .hero { padding: 24px 0 40px; gap: 20px; }
+  .eyebrow { font-size: 11px; }
+  .headline { font-size: clamp(32px, 8vw, 48px); margin: 8px 0 12px; }
+  .subhead { font-size: 16px; margin-bottom: 16px; }
+  .hero-ctas { gap: 10px; margin: 10px 0 16px; }
+  .hero-ctas .btn { padding: 12px 16px; }
+  
+  .hero-art { height: 280px; }
+  .hero-image { width: 85%; height: 75%; }
+  
+  /* Cards & Grids */
+  .card-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 12px; }
+  .card-media { height: 160px; }
+  .card-body { padding: 12px; }
+  .card-body h3 { font-size: 18px; margin: 4px 0 6px; }
+  .card-body p { font-size: 14px; margin: 0 0 6px; }
+  
+  .programs-grid, .research-grid { 
+    grid-template-columns: 1fr; 
+    gap: 10px; 
+    margin-top: 10px; 
+  }
+  .program-card { 
+    padding: 12px; 
+    min-height: 110px; 
+  }
+  .program-card h3 { font-size: 16px; margin: 8px 0 4px; }
+  .program-card p { font-size: 13px; }
+  
+  .research-card .media { height: 140px; }
+  .research-card .body { padding: 10px; }
+  .research-card h3 { font-size: 16px; margin: 6px 0 4px; }
+  .research-card p { font-size: 13px; }
+  
+  /* Sections */
+  .section-head h2 { font-size: clamp(24px, 6vw, 32px); margin: 0 0 4px; }
+  .section-head p { font-size: 14px; }
+  .highlights, .programs, .research-slice { padding: 12px 0 8px; }
+  
+  /* CTA */
+  .cta-band { padding: 12px 0 32px; }
+  .cta-card { padding: 18px; }
+  .cta-card h3 { font-size: 18px; }
+  .cta-card p { font-size: 14px; }
+  .cta-card .actions { gap: 10px; }
+  
+  /* Forms */
+  .form-card { padding: 16px; }
+  .form-grid { grid-template-columns: 1fr; gap: 10px; }
+  .input input, .input select, .input textarea { 
+    padding: 12px 14px; 
+    font-size: 14px; 
+  }
+  .input textarea { min-height: 80px; }
+  .form-actions { gap: 8px; }
+  
+  /* Footer */
+  .site-footer { padding: 20px 0 32px; }
+  .footer-grid { 
+    grid-template-columns: 1fr; 
+    gap: 20px; 
+    text-align: center; 
+  }
+  .footer-col h4 { font-size: 16px; margin: 0 0 10px; }
+  .footer-col a { font-size: 14px; margin: 8px 0; }
+  .newsletter { flex-direction: column; gap: 10px; }
+  .newsletter input { padding: 12px 14px; }
+  
+  /* Buttons */
+  .btn { font-size: 14px; }
+  .badges { gap: 8px; }
+  .badge { padding: 6px 10px; font-size: 11px; }
 }
 
 /* Small phones */
 @media (max-width: 480px) {
-  .headline { font-size: clamp(28px, 9vw, 40px); }
-  .subhead { font-size: 16px; }
-  .btn { padding: 10px 14px; }
-  .hero-art { height: 240px; }
-  .hero-image { width: 92%; height: 70%; }
+  .container { width: 96vw; }
+  
+  /* Header */
+  .site-nav { padding: 10px 0; }
+  .brand-mark { width: 28px; height: 28px; font-size: 12px; }
+  .brand-text { font-size: 13px; }
+  .nav-toggle { width: 34px; height: 34px; }
+  .nav-toggle span { left: 6px; right: 6px; }
+  .nav-toggle span:nth-child(1) { top: 10px; }
+  .nav-toggle span:nth-child(2) { top: 16px; }
+  .nav-toggle span:nth-child(3) { top: 22px; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) { top: 16px; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) { top: 16px; }
+  
+  .nav-links { 
+    inset: 52px 8px auto 8px; 
+    padding: 12px; 
+    gap: 6px; 
+  }
+  .nav-links a { padding: 10px 12px; font-size: 14px; }
+  
+  .theme-toggle { width: 34px; height: 34px; }
+  .btn { padding: 8px 12px; font-size: 13px; }
+  
+  /* Hero */
+  .hero { padding: 20px 0 32px; }
+  .eyebrow { font-size: 10px; }
+  .headline { font-size: clamp(28px, 9vw, 36px); margin: 6px 0 10px; }
+  .subhead { font-size: 15px; margin-bottom: 14px; }
+  .hero-ctas { gap: 8px; margin: 8px 0 12px; }
+  .hero-ctas .btn { padding: 10px 14px; }
+  
+  .hero-art { height: 220px; }
+  .hero-image { width: 90%; height: 70%; }
+  
+  /* Cards */
+  .card-grid { gap: 10px; margin-top: 10px; }
   .card-media { height: 140px; }
-  .program-card { min-height: 120px; }
-  .nav-links { inset: 56px 12px auto 12px; padding: 10px; }
+  .card-body { padding: 10px; }
+  .card-body h3 { font-size: 16px; margin: 3px 0 5px; }
+  .card-body p { font-size: 13px; margin: 0 0 5px; }
+  
+  .programs-grid, .research-grid { gap: 8px; margin-top: 8px; }
+  .program-card { padding: 10px; min-height: 100px; }
+  .program-card h3 { font-size: 15px; margin: 6px 0 3px; }
+  .program-card p { font-size: 12px; }
+  .program-card .tag { font-size: 10px; padding: 4px 8px; }
+  
+  .research-card .media { height: 120px; }
+  .research-card .body { padding: 8px; }
+  .research-card h3 { font-size: 15px; margin: 5px 0 3px; }
+  .research-card p { font-size: 12px; }
+  
+  /* Sections */
+  .section-head h2 { font-size: clamp(22px, 7vw, 28px); margin: 0 0 3px; }
+  .section-head p { font-size: 13px; }
+  .highlights, .programs, .research-slice { padding: 10px 0 6px; }
+  
+  /* CTA */
+  .cta-band { padding: 10px 0 24px; }
+  .cta-card { padding: 16px; }
+  .cta-card h3 { font-size: 16px; }
+  .cta-card p { font-size: 13px; }
+  .cta-card .actions { gap: 8px; }
+  
+  /* Forms */
+  .form-card { padding: 14px; }
+  .form-grid { gap: 8px; }
+  .input input, .input select, .input textarea { 
+    padding: 10px 12px; 
+    font-size: 13px; 
+  }
+  .input textarea { min-height: 70px; }
+  .input label { font-size: 13px; }
+  
+  /* Footer */
+  .site-footer { padding: 16px 0 24px; }
+  .footer-grid { gap: 16px; }
+  .footer-col h4 { font-size: 15px; margin: 0 0 8px; }
+  .footer-col a { font-size: 13px; margin: 6px 0; }
+  .newsletter input { padding: 10px 12px; font-size: 13px; }
+  
+  /* Buttons */
+  .btn { font-size: 13px; }
+  .badge { padding: 5px 8px; font-size: 10px; }
+}
+
+/* Extra small phones */
+@media (max-width: 360px) {
+  .container { width: 98vw; }
+  
+  .headline { font-size: clamp(24px, 10vw, 32px); }
+  .subhead { font-size: 14px; }
+  
+  .hero-art { height: 200px; }
+  .hero-image { width: 92%; height: 65%; }
+  
+  .card-media { height: 120px; }
+  .program-card { min-height: 90px; }
+  .research-card .media { height: 100px; }
+  
+  .btn { padding: 7px 10px; font-size: 12px; }
+  .nav-links a { padding: 8px 10px; font-size: 13px; }
 }
 
 
