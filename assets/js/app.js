@@ -7,9 +7,17 @@
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme) html.setAttribute('data-theme', savedTheme);
   if (themeToggle) {
+    function withSmoothThemeTransition(callback) {
+      html.classList.add('theme-transition');
+      window.requestAnimationFrame(() => {
+        callback();
+        setTimeout(() => html.classList.remove('theme-transition'), 380);
+      });
+    }
+
     themeToggle.addEventListener('click', () => {
       const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
+      withSmoothThemeTransition(() => html.setAttribute('data-theme', next));
       localStorage.setItem('theme', next);
     });
   }

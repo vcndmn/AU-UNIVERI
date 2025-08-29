@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Apply — Aurelia University</title>
+    <meta name="description" content="Apply to Aurelia University. Submit your application details and get started." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <div class="progress"></div>
+    <header class="site-header">
+      <nav class="site-nav container">
+        <a class="brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true">AU</span>
+          <span class="brand-text">Aurelia University</span>
+        </a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="academics.html">Academics</a></li>
+          <li><a href="admissions.html">Admissions</a></li>
+          <li><a href="campus.html">Campus Life</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+        <div class="nav-cta">
+          <button class="theme-toggle" aria-label="Toggle theme"></button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container" style="padding: 36px 0 32px;">
+      <div class="section-head reveal">
+        <h1 class="headline">Application Form</h1>
+        <p class="subhead">Tell us a bit about you. This demo form does not submit to a server.</p>
+      </div>
+
+      <form class="form-card reveal" onsubmit="return false">
+        <div class="form-grid">
+          <div class="input">
+            <label for="first">First name</label>
+            <input id="first" name="first" type="text" required />
+          </div>
+          <div class="input">
+            <label for="last">Last name</label>
+            <input id="last" name="last" type="text" required />
+          </div>
+          <div class="input">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+          <div class="input">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" />
+          </div>
+          <div class="input">
+            <label for="level">Applying as</label>
+            <select id="level" name="level" required>
+              <option value="">Select</option>
+              <option>Undergraduate</option>
+              <option>Graduate</option>
+              <option>International</option>
+            </select>
+          </div>
+          <div class="input">
+            <label for="program">Intended program</label>
+            <input id="program" name="program" type="text" placeholder="e.g. Human-Centered AI" />
+          </div>
+          <div class="input full">
+            <label for="statement">Personal statement</label>
+            <textarea id="statement" name="statement" placeholder="What inspires you to study at Aurelia?"></textarea>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit">Submit Application</button>
+          <a class="btn btn-ghost" href="admissions.html">Back to Admissions</a>
+        </div>
+      </form>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="brand-col">
+          <a class="brand" href="index.html">
+            <span class="brand-mark">AU</span>
+            <span class="brand-text">Aurelia University</span>
+          </a>
+          <p class="muted">© <span id="year"></span> Aurelia University. All rights reserved.</p>
+        </div>
+        <nav class="footer-col">
+          <h4>Explore</h4>
+          <a href="academics.html">Academics</a>
+          <a href="research.html">Research</a>
+          <a href="campus.html">Campus Life</a>
+        </nav>
+        <nav class="footer-col">
+          <h4>Admissions</h4>
+          <a href="admissions.html">Undergraduate</a>
+          <a href="admissions.html#grad">Graduate</a>
+          <a href="admissions.html#aid">Financial Aid</a>
+        </nav>
+        <div class="footer-col">
+          <h4>Stay in touch</h4>
+          <form class="newsletter" onsubmit="return false">
+            <input type="email" placeholder="Email address" aria-label="Email address" />
+            <button class="btn btn-primary" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+    <script>
+      document.querySelector('form').addEventListener('submit', function() {
+        alert('Thanks! Your application has been received. (Demo)');
+      });
+    </script>
+  </body>
+  </html>
+
+
